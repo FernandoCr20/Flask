@@ -4,8 +4,8 @@ class Products(db.Model):
     __tablename__ = 'products'
     __table_args__ = {'sqlite_autoincrement': True}
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Colum(db.String(255))
-    price = db.Colum(db.Float)
+    name = db.Column(db.String(255))
+    price = db.Column(db.Float)
 
     def __init__(self, name, price):
         self.name = name

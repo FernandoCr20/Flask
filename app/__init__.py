@@ -1,10 +1,20 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Api
 
 app = Flask(__name__)
+api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///crud.db'
 
 db = SQLAlchemy(app)
+from app.models.products import Products
+with app.app_context():
+    db.create_all()
+
+from app.view.reso_products import Index
+from app.view.reso_products import ProductCreate
+api.add_resource(Index, '/')
+api.add_resource(ProductCreate, '/post')
 
 ''' @app.route("/")
 def index():
