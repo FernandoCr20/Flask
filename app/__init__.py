@@ -13,8 +13,13 @@ with app.app_context():
 
 from app.view.reso_products import Index
 from app.view.reso_products import ProductCreate
+from app.view.reso_products import ProductUpdate
+from app.view.reso_products import ProductDelete
+
 api.add_resource(Index, '/')
-api.add_resource(ProductCreate, '/post')
+api.add_resource(ProductCreate, '/criar') # post
+api.add_resource(ProductUpdate, '/atualizar') # put
+api.add_resource(ProductDelete, '/deletar') # delete
 
 ''' @app.route("/")
 def index():
