@@ -14,11 +14,13 @@ with app.app_context():
     db.create_all()
 
 from app.view.reso_products import Index
+from app.view.reso_products import ProductById
 from app.view.reso_products import ProductCreate
 from app.view.reso_products import ProductUpdate
 from app.view.reso_products import ProductDelete
 
 api.add_resource(Index, '/')
+api.add_resource(ProductById, '/buscar_id') #get
 api.add_resource(ProductCreate, '/criar') # post
 api.add_resource(ProductUpdate, '/atualizar') # put
 api.add_resource(ProductDelete, '/deletar') # delete
